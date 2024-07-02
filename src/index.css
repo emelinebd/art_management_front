@@ -11,6 +11,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Variables pour les couleurs */
+  --primary-background-color: #6A0DAD; /* Couleur de fond principale */
+  --form-background-color: #7D3C98; /* Couleur de fond du formulaire */
+  --form-box-shadow-color: rgba(0, 0, 0, 0.1); /* Couleur de l'ombre de la boîte */
+  --form-max-width: 450px; /* Largeur maximale du formulaire */
+  --form-text-color: #000; /* Couleur du texte du formulaire */
+  --button-background-color: #9B30FF; /* Couleur de fond du bouton */
+  --button-hover-background-color: #A56CC1; /* Couleur de fond du bouton au survol */
+  --primary-color: #6A0DAD; /* Couleur principale */
+  --text-color: #7D3C98; /* Couleur du texte */
+  --border-color: #6A0DAD; /* Couleur de la bordure */
+  --focus-color: #9B30FF; /* Couleur en focus */
+  --placeholder-color: #A56CC1; /* Couleur du texte de l'espace réservé */
 }
 
 a {
@@ -23,35 +37,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -61,8 +52,5 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }

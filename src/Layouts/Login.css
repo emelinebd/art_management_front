@@ -1,0 +1,46 @@
+@import url('../../src/index.css');
+
+.input-group label {
+  color: var(--text-color);
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  background-color: #f0f0f0; /* Utilisation de la variable pour la couleur de fond */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--form-box-shadow-color); /* Utilisation de la variable pour la couleur de l'ombre */
+  max-width: var(--form-max-width); /* Utilisation de la variable pour la largeur maximale */
+  width: 100%;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color); /* Utilisation de la variable pour la couleur du texte */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--button-background-color); /* Utilisation de la variable pour la couleur de fond */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: var(--button-hover-background-color); /* Utilisation de la variable pour la couleur de fond au survol */
+}
+
+button:focus {
+  outline: none;
+}
