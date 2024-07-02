@@ -8,10 +8,18 @@
   height: 100%;
   background-color: var(--defaut-background-color);
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .logo {
-  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .sidebar-image {
@@ -31,7 +39,7 @@
 .sidebar-menu li a {
   display: block;
   padding: 10px 20px;
-  color: var(--text-color);
+  color: var(--fourth-color);
   text-decoration: none;
   transition: background-color 0.3s;
 }
@@ -39,7 +47,7 @@
 
 .content {
   margin-left: 250px;
-  padding: 20px;
+  padding: 70px;
   height: 100vh;
   background-color: var(--primary-background-color);
 }
@@ -61,4 +69,73 @@
 .content p {
   font-size: 16px;
   line-height: 1.5;
+  margin: 0;
+  color: var(--fourth-color);
+}
+
+.moisAnnee {
+  text-transform: capitalize;
+  color: var(--fourth-color);
+}
+
+.ca {
+  width: 400px;
+  height: 400px;
+  background-color: var(--second-background-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding-left: 20px;
+  color: var(--white);
+}
+
+.paddingbottom {
+  margin-bottom: 20px;
+}
+
+.grid {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.carre {
+  border: 1px solid #D8B2EA;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding-left: 20px;
+  background-color: var(--white);
+}
+
+.carre p {
+  font-size: 18px;
+}
+
+p.stat {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.spancarre {
+  color: var(--third-color);
+}
+
+.deconnexion {
+  width: 80%;
+  padding: 10px;
+  background-color: var(--second-background-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: auto;
+  align-self: center;
+  margin-bottom: 40px;
 }

@@ -13,6 +13,7 @@ const Sidebar = () => {
         <li><a href="#">Clients</a></li>
         <li><a href="#">Tableaux</a></li>
       </ul>
+      <button className="deconnexion" type="submit">Deconnexion</button>
     </div>
   );
 };

@@ -13,13 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Variables pour les couleurs */
-  --primary-background-color: #6A0DAD; /* Couleur de fond principale */
   --form-background-color: #7D3C98; /* Couleur de fond du formulaire */
   --form-box-shadow-color: rgba(0, 0, 0, 0.1); /* Couleur de l'ombre de la boîte */
   --form-max-width: 450px; /* Largeur maximale du formulaire */
   --form-text-color: #000; /* Couleur du texte du formulaire */
   --button-background-color: #9B30FF; /* Couleur de fond du bouton */
-  --button-hover-background-color: #A56CC1; /* Couleur de fond du bouton au survol */
+  --second-background-color: #A56CC1; /* Couleur de fond du bouton au survol */
   --primary-color: #6A0DAD; /* Couleur principale */
   --text-color: #7D3C98; /* Couleur du texte */
   --border-color: #6A0DAD; /* Couleur de la bordure */
@@ -27,6 +26,10 @@
   --placeholder-color: #A56CC1; /* Couleur du texte de l'espace réservé */
   --defaut-background-color: #fff; /* Couleur de fond par défaut */
   --primary-background-color: #E9E2F4; /* Couleur de fond principale */
+  --white : #fff; /* Couleur du texte blanc */
+  --third-color: #E9E2F4; /* Couleur tertiaire */
+  --fourth-color: #A56CC1; /* Couleur quaternaire */
+
 }
 
 a {
@@ -47,6 +50,10 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  margin: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -55,4 +62,8 @@ h1 {
   a:hover {
     color: #747bff;
   }
+}
+
+.flex {
+  display: flex;
 }
