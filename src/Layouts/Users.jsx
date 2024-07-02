@@ -9,8 +9,8 @@ import UserCard from '../components/UserCard';
 import '../styles/Users.css';
 
 const users = [
-  { name: 'John Doe', email: 'john.doe@example.fr', status: 'Vérifié', imagesCount: 10 },
-  { name: 'Jane Smith', email: 'jane.smith@example.fr', status: 'En attente', imagesCount: 5 },
+  { name: 'John Doe', email: 'john.doe@example.fr', status: 'Vérifié', boardCount: 10 },
+  { name: 'Jane Smith', email: 'jane.smith@example.fr', status: 'En attente', boardCount: 5 },
   // Ajoutez plus d'utilisateurs ici
 ];
 
@@ -45,7 +45,7 @@ const Users = () => {
                 name={user.name}
                 email={user.email}
                 status={user.status}
-                imagesCount={user.imagesCount}
+                boardCount={user.boardCount}
               />
             ))}
           </div>

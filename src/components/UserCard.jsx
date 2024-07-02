@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/UserCard.css';
 
-const UserCard = ({ name, email, status, imagesCount }) => {
+const UserCard = ({ name, email, status, boardCount }) => {
   return (
     <div className="user-card">
       <div className="user-info">
@@ -13,11 +13,12 @@ const UserCard = ({ name, email, status, imagesCount }) => {
       </div>
       <div className="user-status">
         <span className={`status-badge ${status === 'Vérifié' ? 'verified' : 'pending'}`}>
-          {status === 'Vérifié' ? '✔ Vérifié' : '⏳ En attente'}
+          {status}
         </span>
       </div>
-      <div className="user-images">
-        <span className="images-count">{imagesCount}</span>
+      <div className="user-boards">
+
+        <span className="boards-count">{boardCount}</span>
       </div>
       <div className="user-actions">
         <button className="edit-button">
@@ -32,7 +33,7 @@ UserCard.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  imagesCount: PropTypes.number.isRequired,
+  boardCount: PropTypes.number.isRequired,
 };
 
 export default UserCard;

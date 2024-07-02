@@ -1,3 +1,5 @@
+/* src/styles/UserCard.css */
+
 .user-card {
   display: flex;
   align-items: center;
@@ -37,9 +39,24 @@
   color: #856404;
 }
 
-.user-images {
-  font-size: 1.5em;
+.user-boards {
+  display: flex;
+  align-items: center;
+  width: 50px;
+}
+
+.boards-icon {
+  margin-right: 5px;
   color: #717171;
+}
+
+.boards-count {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: var(--third-color);
+  border-radius: 12px;
+  font-size: 0.9em;
+  color: #3a3a3a;
 }
 
 .edit-button {
@@ -48,4 +65,12 @@
   font-size: 1.2em;
   color: #717171;
   cursor: pointer;
+}
+
+.user-status {
+  width: 100px;
+}
+
+button.edit-button:hover {
+  background-color: var(--third-color);
 }
