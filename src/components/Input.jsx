@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Input.css'; // Importez votre fichier CSS pour les styles
+import '../styles/Input.css';
 
 const Input = ({ type, label, value, onChange, placeholder }) => {
   return (
