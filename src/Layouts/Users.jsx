@@ -5,7 +5,14 @@ import Sidebar from '../components/Sidebar';
 import UserNameDisplay from "../components/UserNameDisplay";
 import Button from '../components/Button';
 import Alert from '../components/Alert';
+import UserCard from '../components/UserCard';
 import '../styles/Users.css';
+
+const users = [
+  { name: 'John Doe', email: 'john.doe@example.fr', status: 'Vérifié', imagesCount: 10 },
+  { name: 'Jane Smith', email: 'jane.smith@example.fr', status: 'En attente', imagesCount: 5 },
+  // Ajoutez plus d'utilisateurs ici
+];
 
 const Users = () => {
   const [alert, setAlert] = useState({ type: '', message: '' });
@@ -31,6 +38,17 @@ const Users = () => {
         <div className="content">
           <Button text="Ajouter un client" className="button" onClick={handleButtonClick} />
           {alert.message && <Alert type={alert.type} message={alert.message} />}
+          <div className="user-list">
+            {users.map((user, index) => (
+              <UserCard
+                key={index}
+                name={user.name}
+                email={user.email}
+                status={user.status}
+                imagesCount={user.imagesCount}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

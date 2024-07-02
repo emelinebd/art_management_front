@@ -1,0 +1,51 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #3a3a3a;
+}
+
+.user-info p {
+  margin: 5px 0 0;
+  color: #717171;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.verified {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.user-images {
+  font-size: 1.5em;
+  color: #717171;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: #717171;
+  cursor: pointer;
+}
