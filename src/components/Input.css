@@ -1,0 +1,31 @@
+@import url('../../src/index.css');
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--text-color); /* Utilisation de la variable pour la couleur du texte */
+}
+
+.custom-input {
+  width: calc(100% - 40px);
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 1px solid var(--border-color); /* Utilisation de la variable pour la couleur de la bordure */
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-input:focus {
+  border-color: var(--focus-color); /* Utilisation de la variable pour la couleur en focus */
+  box-shadow: 0 0 8px rgba(155, 48, 255, 0.6);
+}
+
+.custom-input::placeholder {
+  color: var(--placeholder-color); /* Utilisation de la variable pour la couleur du texte de l'espace réservé */
+}
