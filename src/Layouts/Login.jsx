@@ -1,6 +1,7 @@
+// Login.jsx
 import React, { useState } from 'react';
 import Input from '../components/Input';
-import '../styles/Login.css';
+import '../styles/Login.css'; // Import du fichier principal des styles
 
 const Login = () => {
   const [username, setUsername] = useState('');

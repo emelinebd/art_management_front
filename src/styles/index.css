@@ -25,6 +25,8 @@
   --border-color: #6A0DAD; /* Couleur de la bordure */
   --focus-color: #9B30FF; /* Couleur en focus */
   --placeholder-color: #A56CC1; /* Couleur du texte de l'espace réservé */
+  --defaut-background-color: #fff; /* Couleur de fond par défaut */
+  --primary-background-color: #E9E2F4; /* Couleur de fond principale */
 }
 
 a {

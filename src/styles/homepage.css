@@ -1,0 +1,64 @@
+@import url('index.css');
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--defaut-background-color);
+  padding-top: 20px;
+}
+
+.logo {
+  text-align: center;
+}
+
+.sidebar-image {
+  width: 80px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  height: 100vh;
+  background-color: var(--primary-background-color);
+}
+
+.user-display {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.user-display p {
+  margin: 0;
+}
+
+.content h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
