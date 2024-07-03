@@ -74,18 +74,21 @@
 }
 
 .file-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 10px;
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 5px;
 }
 
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .file-info span {
   flex: 1;
-  text-align: center;
+  padding-left: 10px;
 }
 
 .file-remove {
@@ -169,3 +172,20 @@
   padding-right: 20px;
 }
 
+#file-upload {
+  display: none;
+}
+
+.btn-choose {
+  padding: 10px;
+  background-color: var(--second-background-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-choose:hover {
+  background-color: var(--focus-color);
+}

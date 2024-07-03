@@ -4,11 +4,9 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Sidebar from '../components/Sidebar';
 import UserNameDisplay from '../components/UserNameDisplay';
-import '../styles/AddPainting.css';
-
-// Importation de l'icône de poubelle (exemple avec Font Awesome)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import '../styles/AddPainting.css';
 
 const AddPainting = () => {
   const [title, setTitle] = useState('');
@@ -18,13 +16,14 @@ const AddPainting = () => {
   const [creationDate, setCreationDate] = useState('');
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [file, setFile] = useState(null); // State pour le fichier sélectionné
+  const [files, setFiles] = useState([]); // State pour les fichiers sélectionnés
   const [dragOver, setDragOver] = useState(false); // State pour la mise en surbrillance de la zone de glisser-déposer
   const navigate = useNavigate();
 
   // Fonction pour gérer le changement de fichier
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]); // Met à jour le fichier sélectionné dans l'état `file`
+    const filesArray = Array.from(e.target.files);
+    setFiles([...files, ...filesArray]);
   };
 
   // Fonction pour gérer l'événement de survol lors du glisser-déposer
@@ -41,22 +40,24 @@ const AddPainting = () => {
   // Fonction pour gérer le dépôt d'un fichier lors du glisser-déposer
   const handleDrop = (e) => {
     e.preventDefault();
-    setFile(e.dataTransfer.files[0]); // Met à jour le fichier sélectionné avec celui déposé
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    setFiles([...files, ...droppedFiles]); // Ajoute les fichiers déposés à la liste des fichiers
     setDragOver(false); // Réinitialise l'état de survol
+  };
+
+  // Fonction pour gérer la suppression d'un fichier
+  const handleFileRemove = (indexToRemove) => {
+    const updatedFiles = files.filter((file, index) => index !== indexToRemove);
+    setFiles(updatedFiles);
   };
 
   // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique pour ajouter le tableau (par exemple, envoyer les données à une API)
-    console.log('Tableau ajouté:', { title, method, length, width, creationDate, description, quantity, file });
-    // Après l'ajout, vous pouvez rediriger l'utilisateur vers la liste des tableaux
+    // Logique pour ajouter les tableaux (envoyer les données à une API, etc.)
+    console.log('Tableaux ajoutés:', { title, method, length, width, creationDate, description, quantity, files });
+    // Rediriger l'utilisateur vers la liste des tableaux après l'ajout
     navigate('/paintings');
-  };
-
-  // Fonction pour supprimer le fichier sélectionné
-  const handleFileRemove = () => {
-    setFile(null); // Réinitialise l'état `file` à `null`
   };
 
   return (
@@ -131,18 +132,28 @@ const AddPainting = () => {
               >
                 <label htmlFor="file-upload" className="custom-file-upload">
                   <span>Importer un fichier ou déposer le ici</span>
+                  <span className="btn-choose">Choisir un fichier</span>
                   <input
                     id="file-upload"
                     type="file"
                     onChange={handleFileChange}
                     accept="image/*"
+                    multiple // Permettre le choix de plusieurs fichiers
                   />
                 </label>
               </div>
-              {file && (
+              {files.length > 0 && (
                 <div className="file-info">
-                  <span>{file.name}</span>
-                  <FontAwesomeIcon icon={faTrashAlt} onClick={handleFileRemove} className="trash-icon" />
+                  {files.map((file, index) => (
+                    <div key={index} className="file-item">
+                      <span>{file.name}</span>
+                      <FontAwesomeIcon
+                        icon={faTrashAlt}
+                        onClick={() => handleFileRemove(index)}
+                        className="trash-icon"
+                      />
+                    </div>
+                  ))}
                 </div>
               )}
               <div className="form-buttons">
