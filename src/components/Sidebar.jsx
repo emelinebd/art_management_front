@@ -12,7 +12,7 @@ const Sidebar = () => {
       <ul className="sidebar-menu">
         <li><Link to="/home">Tableau de bord</Link></li>
         <li><Link to="/Users">Clients</Link></li>
-        <li><a href="#">Tableaux</a></li>
+        <li><a href="/Paints">Tableaux</a></li>
       </ul>
       <button className="deconnexion" type="submit">Deconnexion</button>
     </div>
