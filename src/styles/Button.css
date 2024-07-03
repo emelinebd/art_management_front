@@ -1,0 +1,10 @@
+button.button {
+  width: 30%;
+  padding: 10px;
+  background-color: var(--second-background-color); /* Utilisation de la variable pour la couleur de fond */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}

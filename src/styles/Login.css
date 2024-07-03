@@ -1,7 +1,7 @@
 @import url('index.css');
 
 .input-group label {
-  color: var(--text-color);
+  color: var(--primary-color);
 }
 
 .login-container {
@@ -23,7 +23,7 @@
 .login-form h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: var(--text-color); /* Utilisation de la variable pour la couleur du texte */
+  color: var(--primary-color); /* Utilisation de la variable pour la couleur du texte */
 }
 
 button {
@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--button-background-color); /* Utilisation de la variable pour la couleur de fond au survol */
+  background-color: var(--primary-color); /* Utilisation de la variable pour la couleur de fond au survol */
 }
 
 button:focus {

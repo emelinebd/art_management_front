@@ -8,17 +8,17 @@
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
-  color: var(--text-color); /* Utilisation de la variable pour la couleur du texte */
+  color: var(--primary-color); /* Utilisation de la variable pour la couleur du texte */
 }
 
 .custom-input {
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 12px 20px;
-  font-size: 16px;
-  border: 1px solid var(--border-color); /* Utilisation de la variable pour la couleur de la bordure */
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box; /* Ajoutez cette ligne */
 }
 
 .custom-input:focus {

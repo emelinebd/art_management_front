@@ -13,14 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Variables pour les couleurs */
-  --form-background-color: #7D3C98; /* Couleur de fond du formulaire */
   --form-box-shadow-color: rgba(0, 0, 0, 0.1); /* Couleur de l'ombre de la boîte */
   --form-max-width: 450px; /* Largeur maximale du formulaire */
   --form-text-color: #000; /* Couleur du texte du formulaire */
-  --button-background-color: #9B30FF; /* Couleur de fond du bouton */
   --second-background-color: #A56CC1; /* Couleur de fond du bouton au survol */
-  --primary-color: #6A0DAD; /* Couleur principale */
-  --text-color: #7D3C98; /* Couleur du texte */
+  --primary-color: #7D3C98; /* Couleur principale */
   --border-color: #6A0DAD; /* Couleur de la bordure */
   --focus-color: #9B30FF; /* Couleur en focus */
   --placeholder-color: #A56CC1; /* Couleur du texte de l'espace réservé */

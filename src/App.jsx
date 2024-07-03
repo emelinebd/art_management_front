@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './Layouts/Login';
 import Homepage from './Layouts/Homepage';
 import Users from "./Layouts/Users";
-import './styles/index.css'; // Import du fichier principal des styles
+import './styles/index.css';
+import AddUser from "./Layouts/AddUser.jsx"; // Import du fichier principal des styles
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Homepage />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/add-user" element={<AddUser />} />
           {/* Redirection par défaut vers /login */}
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

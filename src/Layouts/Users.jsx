@@ -1,6 +1,5 @@
-// src/pages/Users.jsx
-
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import UserNameDisplay from "../components/UserNameDisplay";
 import Button from '../components/Button';
@@ -15,7 +14,7 @@ const users = [
 ];
 
 const Users = () => {
-  const [alert, setAlert] = useState({ type: '', message: '' });
+  const [alert, setAlert] = React.useState({ type: '', message: '' });
 
   // Fonction pour afficher une alerte
   const showAlert = (type, message) => {
@@ -25,18 +24,17 @@ const Users = () => {
     }, 5000);
   };
 
-  // Exemple de déclenchement d'une alerte
-  const handleButtonClick = () => {
-    showAlert('warning', 'Attention ! Des utilisateurs n’ont pas encore validé leur profil.');
-  };
-
   return (
     <div className="homepage">
       <Sidebar />
       <div className="allcontent">
-        <UserNameDisplay/>
+        <UserNameDisplay />
         <div className="content">
-          <Button text="Ajouter un client" className="button" onClick={handleButtonClick} />
+          <div className="containingbutton">
+            <Link to="/add-user" className="button-link">
+              <Button text="Ajouter un client" className="button" />
+            </Link>
+          </div>
           {alert.message && <Alert type={alert.type} message={alert.message} />}
           <div className="user-list">
             {users.map((user, index) => (
