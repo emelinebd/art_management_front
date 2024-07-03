@@ -2,13 +2,14 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './styles/index.css';
 import Login from './Layouts/Login';
 import Homepage from './Layouts/Homepage';
 import Users from "./Layouts/Users";
 import User from "./Layouts/User.jsx";
-import './styles/index.css';
 import AddUser from "./Layouts/AddUser.jsx";
 import Paints from "./Layouts/Paints.jsx";
+import AddPainting from "./Layouts/AddPainting.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/add-user" element={<AddUser />} />
           <Route path="/users/:name" element={<User />} />
           <Route path="/paints" element={<Paints />} />
+          <Route path="/add-paint" element={<AddPainting />} />
           {/* Redirection par défaut vers /login */}
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

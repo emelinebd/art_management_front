@@ -1,0 +1,171 @@
+.add-painting-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--primary-background-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-painting-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.add-painting-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-row > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-row > div:last-child {
+  margin-right: 0;
+}
+
+.form-file-upload {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--border-color);
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--third-color);
+  color: var(--primary-color);
+  text-align: center;
+  width: 90%;
+  height: 500px;
+  margin-left: 5px;
+}
+
+.custom-file-upload span {
+  margin-bottom: 10px;
+}
+
+.btn-file-upload {
+  margin-top: 10px;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.file-info span {
+  flex: 1;
+  text-align: center;
+}
+
+.file-remove {
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  width: 30%;
+  background-color: var(--second-background-color);
+}
+
+.file-remove:hover {
+  color: var(--white);
+  background-color: var(--focus-color);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.btn-cancel,
+.btn-submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.btn-cancel {
+  background-color: var(--third-color);
+  color: var(--primary-color);
+}
+
+.btn-submit {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-submit:hover {
+  background-color: var(--focus-color);
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.custom-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.Champs, .uploadValidate {
+  width: 50%;
+}
+
+.form-file-upload.drag-over {
+  border-color: var(--focus-color);
+  background-color: #f0f0f0;
+}
+
+.file-info svg {
+  padding-right: 20px;
+}
+
