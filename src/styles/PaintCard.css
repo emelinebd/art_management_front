@@ -1,0 +1,86 @@
+/* src/styles/PaintCard.css */
+
+.paint-card {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  align-items: center;
+  color: var(--primary-color);
+  background-color: var(--white);
+}
+
+.paint-info {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.paint-info h3 {
+  margin: 0;
+}
+
+.paint-number-image {
+  flex: 1;
+}
+
+.paint-image {
+  flex: 1;
+}
+
+.paint-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modif-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.user-actions {
+  margin-bottom: auto;
+}
+
+.price {
+  margin-top: auto;
+}
+
+.price p {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: #717171;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #f0f0f0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.image-count {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: var(--third-color);
+  border-radius: 12px;
+  font-size: 0.9em;
+  color: #3a3a3a;
+}
+
+.price span {
+  color: var(--fourth-color);
+}
