@@ -3,29 +3,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/UserCard.css';
+import { Link } from 'react-router-dom';
 
 const UserCard = ({ name, email, status, boardCount }) => {
   return (
-    <div className="user-card">
-      <div className="user-info">
-        <h3>{name}</h3>
-        <p>{email}</p>
-      </div>
-      <div className="user-status">
+    <Link to={`/users/${encodeURIComponent(name)}`}>
+      <div className="user-card">
+        <div className="user-info">
+          <h3>{name}</h3>
+          <p>{email}</p>
+        </div>
+        <div className="user-status">
         <span className={`status-badge ${status === 'Vérifié' ? 'verified' : 'pending'}`}>
           {status}
         </span>
-      </div>
-      <div className="user-boards">
+        </div>
+        <div className="user-boards">
 
-        <span className="boards-count">{boardCount}</span>
+          <span className="boards-count">{boardCount}</span>
+        </div>
+        <div className="user-actions">
+          <button className="edit-button">
+            ✎
+          </button>
+        </div>
       </div>
-      <div className="user-actions">
-        <button className="edit-button">
-          ✎
-        </button>
-      </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,3 +1,5 @@
+// src/pages/Users.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
@@ -38,13 +40,14 @@ const Users = () => {
           {alert.message && <Alert type={alert.type} message={alert.message} />}
           <div className="user-list">
             {users.map((user, index) => (
-              <UserCard
-                key={index}
-                name={user.name}
-                email={user.email}
-                status={user.status}
-                boardCount={user.boardCount}
-              />
+              <Link key={index} to={`/users/${encodeURIComponent(user.name)}`} className="user-link">
+                <UserCard
+                  name={user.name}
+                  email={user.email}
+                  status={user.status}
+                  boardCount={user.boardCount}
+                />
+              </Link>
             ))}
           </div>
         </div>

@@ -1,0 +1,43 @@
+.right, .left {
+  width: 50%;
+  padding: 30px;
+}
+
+.InfoUser {
+  background-color: var(--white);
+  border-radius: 7px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.InfoUser p {
+  margin: 10px 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.flex.statistique {
+  gap: 20px;
+}
+
+.paint, .certificate, .spendmoney {
+  background-color: var(--white);
+  border-radius: 7px;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.paint, .certificate {
+  flex-grow: 1;
+}
+
+.spendmoney {
+  flex-grow: 2;
+}
+
+p.number {
+  font-size: 40px;
+  font-weight: bold;
+}
