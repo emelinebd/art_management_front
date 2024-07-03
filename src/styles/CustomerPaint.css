@@ -1,0 +1,58 @@
+.tableaux-client {
+  margin-top: 20px;
+}
+
+.tableau-item {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.tableau-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.tableau-info h3 {
+  margin: 0;
+}
+
+.tableau-image {
+  flex: 1;
+}
+
+.tableau-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tableau-actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn-generate-certificate {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.btn-generate-certificate {
+  width: 100%;
+}
+
+.btn-generate-certificate:hover {
+  background-color: var(--focus-color);
+}
+
+.bold {
+  font-weight: bold;
+}
