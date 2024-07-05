@@ -11,8 +11,8 @@
 }
 
 .tableau-info {
-  flex: 1;
-  padding-right: 20px;
+  flex: 2;
+  padding: 0 10px;
 }
 
 .tableau-info h3 {
@@ -24,8 +24,9 @@
 }
 
 .tableau-image img {
-  max-width: 100%;
-  height: auto;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 8px;
 }
 

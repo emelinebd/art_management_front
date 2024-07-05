@@ -1,16 +1,15 @@
-// src/components/Input.jsx
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Input.css';
 
-const Input = ({ type, label, value, onChange, placeholder, error }) => {
+const Input = ({ type, name, label, value, onChange, placeholder, error }) => {
   return (
     <div className="input-group">
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={name}>{label}</label>
       <input
         type={type}
-        id={label}
+        id={name}
+        name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
@@ -23,11 +22,12 @@ const Input = ({ type, label, value, onChange, placeholder, error }) => {
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  error: PropTypes.string // Ajout du prop error
+  error: PropTypes.string
 };
 
 export default Input;

@@ -26,10 +26,9 @@
 }
 
 button.btn-cancel {
-  background-color: var(--third-color);
+  background-color: var(--white);
   color: var(--primary-color);
   padding: 10px 20px;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
@@ -49,6 +48,7 @@ button.btn-submit {
 .btn-cancel:hover {
   background-color: var(--primary-color);
   color: var(--white);
+  border: none;
 }
 
 .input-group {

@@ -7,15 +7,52 @@ import UserNameDisplay from '../components/UserNameDisplay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/AddPainting.css';
+import { API_URL } from '../services/authService';
+
+
+export const addPaint = (paintData) => {
+  const formData = new FormData();
+  formData.append('title', paintData.title);
+  formData.append('description', paintData.description);
+  formData.append('method', paintData.method);
+  formData.append('width', paintData.width);
+  formData.append('height', paintData.height);
+  formData.append('prize', paintData.prize);
+  formData.append('quantity', 'available');
+  formData.append('createdAt', paintData.createdAt);
+
+  if (paintData.files) {
+    console.log('cc')
+    paintData.files.forEach((file, index) => {
+      formData.append('files', file);
+    });
+  }
+
+  return fetch(`${API_URL}/paints`, {
+    method: 'POST',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
+    body: formData,
+  })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(errorData => {
+          throw new Error(errorData.message);
+        });
+      }
+      return response.json();
+    });
+};
 
 const AddPainting = () => {
   const [title, setTitle] = useState('');
   const [method, setMethod] = useState('');
-  const [length, setLength] = useState('');
+  const [height, setHeight] = useState('');
   const [width, setWidth] = useState('');
-  const [creationDate, setCreationDate] = useState('');
+  const [createdAt, setCreatedAt] = useState('');
   const [description, setDescription] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [prize, setPrize] = useState('');
   const [files, setFiles] = useState([]); // State pour les fichiers sélectionnés
   const [dragOver, setDragOver] = useState(false); // State pour la mise en surbrillance de la zone de glisser-déposer
   const navigate = useNavigate();
@@ -54,10 +91,28 @@ const AddPainting = () => {
   // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique pour ajouter les tableaux (envoyer les données à une API, etc.)
-    console.log('Tableaux ajoutés:', { title, method, length, width, creationDate, description, quantity, files });
-    // Rediriger l'utilisateur vers la liste des tableaux après l'ajout
-    navigate('/paintings');
+    
+    const paintData = {
+      title,
+      description,
+      method,
+      width,
+      height,
+      prize,
+      createdAt,
+      files
+    };
+
+
+    addPaint(paintData)
+        .then(data => {
+          console.log('Peinture ajoutée:', data);
+          navigate('/paints');
+        })
+        .catch(error => {
+          console.error('Erreur lors de l\'ajout de la peinture:', error.message);
+        });
+ 
   };
 
   return (
@@ -89,23 +144,23 @@ const AddPainting = () => {
                 <Input
                   type="text"
                   label="Longueur"
-                  value={length}
-                  onChange={(e) => setLength(e.target.value)}
+                  value={width}
+                  onChange={(e) => setWidth(e.target.value)}
                   placeholder="Exemple : 90"
                 />
                 <Input
                   type="text"
                   label="Largeur"
-                  value={width}
-                  onChange={(e) => setWidth(e.target.value)}
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
                   placeholder="Exemple : 60"
                 />
               </div>
               <Input
-                type="text"
+                type="date"
                 label="Date de création"
-                value={creationDate}
-                onChange={(e) => setCreationDate(e.target.value)}
+                value={createdAt}
+                onChange={(e) => setCreatedAt(e.target.value)}
                 placeholder="Exemple : 11/2022"
               />
               <Input
@@ -117,9 +172,9 @@ const AddPainting = () => {
               />
               <Input
                 type="text"
-                label="Quantité"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                label="Prix"
+                value={prize}
+                onChange={(e) => setPrize(e.target.value)}
                 placeholder="Exemple : 30"
               />
             </div>

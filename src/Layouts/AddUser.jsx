@@ -5,31 +5,61 @@ import Button from '../components/Button';
 import '../styles/AddUser.css';
 import Sidebar from "../components/Sidebar.jsx";
 import UserNameDisplay from "../components/UserNameDisplay.jsx";
+import { API_URL } from '../services/authService.js';
+
+export const addUser = async (userData) => {
+  try {
+    const response = await fetch(`${API_URL}/customers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      },
+      body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+
+    return response.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
 const AddUser = () => {
-  const [name, setName] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [zip, setZip] = useState('');
+  const [town, setTown] = useState('');
+  const [postalCode, setPostalCode] = useState('');
   const [complement, setComplement] = useState('');
   const [Error, setError] = useState('');
   const navigate = useNavigate();
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Vérifier les champs requis
     let formIsValid = true;
 
-    if (!name) {
+    if (!firstname) {
       setError('Ce champs est requis');
       formIsValid = false;
     } else {
       setError('');
     }
-
+    if (!lastname) {
+      setError('Ce champs est requis');
+      formIsValid = false;
+    } else {
+      setError('');
+    }
     if (!email) {
       setError('Ce champs est requis');
       formIsValid = false;
@@ -51,14 +81,14 @@ const AddUser = () => {
       setError('');
     }
 
-    if (!city) {
+    if (!town) {
       setError('Ce champs est requis');
       formIsValid = false;
     } else {
       setError('');
     }
 
-    if (!zip) {
+    if (!postalCode) {
       setError('Ce champs est requis');
       formIsValid = false;
     } else {
@@ -67,10 +97,17 @@ const AddUser = () => {
 
     // Soumettre le formulaire si tous les champs sont valides
     if (formIsValid) {
-      // Logique pour ajouter le client (par exemple, envoyer les données à une API)
-      console.log('Client ajouté:', { name, email, phone, address, city, zip, complement });
-      // Après l'ajout, vous pouvez rediriger l'utilisateur vers la liste des utilisateurs
-      navigate('/users');
+      const userData = { firstname, lastname, email, phone, address, town, postalCode, complement };
+
+      addUser(userData)
+        .then(data => {
+          console.log('Client ajouté:', data);
+          navigate('/users');
+        })
+        .catch(error => {
+          console.error('Erreur lors de l\'ajout du client:', error.message);
+          setError('Erreur lors de l\'ajout du client');
+        });
     }
   };
 
@@ -86,16 +123,16 @@ const AddUser = () => {
               <Input
                 type="text"
                 label="Prénom"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Exemple : Placeholder"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+                placeholder="Exemple : Pierre"
                 error={Error}
               />
               <Input
                 type="text"
-                label="Label"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                label="Nom"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
                 placeholder="Exemple : Martin"
               />
             </div>
@@ -137,16 +174,16 @@ const AddUser = () => {
               <Input
                 type="text"
                 label="Ville"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                value={town}
+                onChange={(e) => setTown(e.target.value)}
                 placeholder="Exemple : LILLE"
                 error={Error}
               />
               <Input
                 type="text"
                 label="Code postal"
-                value={zip}
-                onChange={(e) => setZip(e.target.value)}
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value)}
                 placeholder="Exemple : 59000"
                 error={Error}
               />

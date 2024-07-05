@@ -16,16 +16,16 @@
   --form-box-shadow-color: rgba(0, 0, 0, 0.1); /* Couleur de l'ombre de la boîte */
   --form-max-width: 450px; /* Largeur maximale du formulaire */
   --form-text-color: #000; /* Couleur du texte du formulaire */
-  --second-background-color: #A56CC1; /* Couleur de fond du bouton au survol */
-  --primary-color: #7D3C98; /* Couleur principale */
-  --border-color: #6A0DAD; /* Couleur de la bordure */
-  --focus-color: #9B30FF; /* Couleur en focus */
-  --placeholder-color: #A56CC1; /* Couleur du texte de l'espace réservé */
+  --second-background-color: #5d5a86; /* Couleur de fond du bouton au survol */
+  --primary-color: #5d5a86; /* Couleur principale */
+  --border-color: #5d5a86; /* Couleur de la bordure */
+  --focus-color: #9896b7; /* Couleur en focus */
+  --placeholder-color: #5d5a86; /* Couleur du texte de l'espace réservé */
   --defaut-background-color: #fff; /* Couleur de fond par défaut */
-  --primary-background-color: #E9E2F4; /* Couleur de fond principale */
+  --primary-background-color: #f2f1fa; /* Couleur de fond principale */
   --white : #fff; /* Couleur du texte blanc */
   --third-color: #E9E2F4; /* Couleur tertiaire */
-  --fourth-color: #A56CC1; /* Couleur quaternaire */
+  --fourth-color: #5d5a86; /* Couleur quaternaire */
 
 }
 

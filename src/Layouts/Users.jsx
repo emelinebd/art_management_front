@@ -1,29 +1,71 @@
-// src/pages/Users.jsx
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import UserNameDisplay from "../components/UserNameDisplay";
+import UserNameDisplay from '../components/UserNameDisplay';
 import Button from '../components/Button';
 import Alert from '../components/Alert';
 import UserCard from '../components/UserCard';
+import { API_URL } from '../services/authService';
 import '../styles/Users.css';
 
-const users = [
-  { name: 'John Doe', email: 'john.doe@example.fr', status: 'Vérifié', boardCount: 10 },
-  { name: 'Jane Smith', email: 'jane.smith@example.fr', status: 'En attente', boardCount: 5 },
-  // Ajoutez plus d'utilisateurs ici
-];
-
 const Users = () => {
-  const [alert, setAlert] = React.useState({ type: '', message: '' });
+  const [customers, setCustomers] = useState([]);
+  const [alert, setAlert] = useState({ type: '', message: '' });
 
-  // Fonction pour afficher une alerte
+  useEffect(() => {
+    const fetchCustomers = async () => {
+      try {
+        const response = await fetch(`${API_URL}/customers`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+          },
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message);
+        }
+        
+        const data = await response.json();
+        setCustomers(data);
+      } catch (error) {
+        console.error('Error fetching customers data:', error.message);
+        showAlert('error', 'Erreur lors de la récupération des clients.');
+      }
+    };
+
+    fetchCustomers();
+  }, []);
+
   const showAlert = (type, message) => {
     setAlert({ type, message });
     setTimeout(() => {
       setAlert({ type: '', message: '' }); // Effacer l'alerte après 5 secondes
     }, 5000);
+  };
+
+  const deleteCustomer = async (customerId) => {
+    try {
+      const response = await fetch(`${API_URL}/customers/${customerId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+
+      setCustomers(customers.filter(customer => customer.id !== customerId));
+      showAlert('success', 'Utilisateur supprimé avec succès.');
+    } catch (error) {
+      console.error('Error deleting customer:', error.message);
+      showAlert('error', 'Erreur lors de la suppression de l\'utilisateur.');
+    }
   };
 
   return (
@@ -39,15 +81,16 @@ const Users = () => {
           </div>
           {alert.message && <Alert type={alert.type} message={alert.message} />}
           <div className="user-list">
-            {users.map((user, index) => (
-              <Link key={index} to={`/users/${encodeURIComponent(user.name)}`} className="user-link">
-                <UserCard
-                  name={user.name}
-                  email={user.email}
-                  status={user.status}
-                  boardCount={user.boardCount}
-                />
-              </Link>
+            {customers.map((user, index) => (
+              <UserCard
+                key={index}
+                id={user.id}
+                name={user.firstname}
+                email={user.email}
+                status={user.status}
+                boardCount={user.paintingsPurchasedCount}
+                onDeleteClick={deleteCustomer} // Assurez-vous que deleteCustomer est passé à UserCard
+              />
             ))}
           </div>
         </div>

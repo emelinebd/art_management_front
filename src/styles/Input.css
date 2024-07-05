@@ -23,7 +23,7 @@
 
 .custom-input:focus {
   border-color: var(--focus-color); /* Utilisation de la variable pour la couleur en focus */
-  box-shadow: 0 0 8px rgba(155, 48, 255, 0.6);
+  box-shadow: 0 0 8px rgba(93, 90, 134, 0.6);
 }
 
 .custom-input::placeholder {

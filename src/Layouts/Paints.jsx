@@ -1,46 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import UserNameDisplay from "../components/UserNameDisplay";
+import UserNameDisplay from '../components/UserNameDisplay';
 import Button from '../components/Button';
 import Alert from '../components/Alert';
 import PaintCard from '../components/PaintCard';
+import { API_URL } from '../services/authService';
 import '../styles/Paints.css'; // Assurez-vous d'importer vos styles CSS
 
-const paints = [
-  {
-    id: 1,
-    nom: 'Le Jardin des délices',
-    numero: '001',
-    technique: 'Peinture à l\'huile',
-    dimensions: '220 x 195 cm',
-    date: '1480-1490',
-    image: 'https://example.com/tableau1.jpg',
-    imageCount: 5,
-    price: 5670,
-  },
-  {
-    id: 2,
-    nom: 'La Joconde',
-    numero: '002',
-    technique: 'Peinture à l\'huile',
-    dimensions: '77 x 53 cm',
-    date: '1503-1506',
-    image: 'https://example.com/tableau2.jpg',
-    imageCount: 3,
-    price: 8900,
-  }
-];
-
 const Paints = () => {
-  const [alert, setAlert] = React.useState({ type: '', message: '' });
+  const [alert, setAlert] = useState({ type: '', message: '' });
+  const [paints, setPaints] = useState([]);
 
-  // Fonction pour afficher une alerte
+  useEffect(() => {
+    const fetchPaints = async () => {
+      try {
+        const response = await fetch(`${API_URL}/paints`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message);
+        }
+
+        const data = await response.json();
+        setPaints(data);
+      } catch (error) {
+        console.error('Error fetching paints data:', error.message);
+        showAlert('error', 'Erreur lors de la récupération des peintures.');
+      }
+    };
+
+    fetchPaints();
+  }, []);
+
   const showAlert = (type, message) => {
     setAlert({ type, message });
     setTimeout(() => {
       setAlert({ type: '', message: '' }); // Effacer l'alerte après 5 secondes
     }, 5000);
+  };
+
+  const deletePaint = async (paintId) => {
+    try {
+      const response = await fetch(`${API_URL}/paints/${paintId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+
+      setPaints(paints.filter(paint => paint.id !== paintId));
+      showAlert('success', 'Tableau supprimé avec succès.');
+    } catch (error) {
+      console.error('Error deleting paint:', error.message);
+      showAlert('error', 'Erreur lors de la suppression du tableau.');
+    }
   };
 
   return (
@@ -61,9 +86,9 @@ const Paints = () => {
                 key={index}
                 tableau={paint}
                 onModifyClick={() => {
-                  // Logique pour modifier le tableau
-                  showAlert('info', `Modification du tableau "${paint.nom}"`);
+                  showAlert('info', `Modification du tableau "${paint.title}"`);
                 }}
+                onDeleteClick={deletePaint} // Passer la fonction de suppression à PaintCard
               />
             ))}
           </div>

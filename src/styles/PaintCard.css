@@ -1,5 +1,3 @@
-/* src/styles/PaintCard.css */
-
 .paint-card {
   display: flex;
   margin-bottom: 20px;
@@ -9,6 +7,7 @@
   align-items: center;
   color: var(--primary-color);
   background-color: var(--white);
+  position: relative;
 }
 
 .paint-info {
@@ -29,8 +28,9 @@
 }
 
 .paint-image img {
-  max-width: 100%;
-  height: auto;
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -39,7 +39,11 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  height: 100%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  padding: 10px;
 }
 
 .user-actions {
@@ -65,7 +69,8 @@
 }
 
 .edit-button:hover {
-  background-color: #f0f0f0;
+  background: none;
+  color: var(--primary-color);
 }
 
 .bold {
@@ -83,4 +88,15 @@
 
 .price span {
   color: var(--fourth-color);
+}
+
+.Delete {
+  background: none;
+  color: #717171;
+  padding: 0;
+}
+
+.Delete:hover {
+  background: none;
+  color: var(--primary-color);
 }

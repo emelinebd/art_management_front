@@ -2,24 +2,34 @@
 import React, { useState } from 'react';
 import Input from '../components/Input';
 import '../styles/Login.css'; // Import du fichier principal des styles
+import { useAuthLogin } from '../context/authContext.jsx';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { login } = useAuthLogin();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ajoutez ici la logique pour soumettre les données (connexion, validation, etc.)
-    console.log('Username:', username);
+    console.log('Email:', email);
     console.log('Password:', password);
+
+
+    try {
+      login(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -28,10 +38,10 @@ const Login = () => {
         <h2>Connexion</h2>
         <Input
           type="text"
-          label="Nom d'utilisateur"
-          value={username}
-          onChange={handleUsernameChange}
-          placeholder="Entrez votre nom d'utilisateur"
+          label="Email"
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="Entrez votre email"
         />
         <Input
           type="password"
@@ -40,7 +50,8 @@ const Login = () => {
           onChange={handlePasswordChange}
           placeholder="Entrez votre mot de passe"
         />
-        <button type="submit">Se connecter</button>
+        {error && (<span>{error}</span>)}
+        <button type="submit" onClick={handleSubmit}>Se connecter</button>
       </form>
     </div>
   );

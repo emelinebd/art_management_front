@@ -71,6 +71,6 @@
   width: 100px;
 }
 
-button.edit-button:hover {
-  background-color: var(--third-color);
+.user-info {
+  width: 30%;
 }

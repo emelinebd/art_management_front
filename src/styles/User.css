@@ -1,5 +1,5 @@
 .right {
-  width: 50%;
+  width: 40%;
   padding: 30px;
 }
 
@@ -53,4 +53,23 @@ p.number {
 
 .tableau-info p {
   font-size: 13px;
+}
+
+.tableau-actions .button {
+  width: 100%;
+}
+
+.buttonCertificate {
+  padding: 10px;
+  background-color: var(--second-background-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttonCertificate:hover{
+  color: white;
+  background-color: var(--focus-color);
 }
